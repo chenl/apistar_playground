@@ -50,24 +50,49 @@ def echo_username(username):
     return {'message': f'Welcome, {username}!'}
 
 
+user_idx = 2
+users = {0: 'penny', 1: 'benny', 2: 'jenny'}
+
+
 def list_users():
     """list all users"""
-    return "list of users..."
+    return users
 
 
-def create_user():
+def create_user(name: str):
     """Create a user"""
-    return "a new user created..."
+    global user_idx, users
+    user_idx += 1
+    users[user_idx] = name
+    return {
+        'message': 'user created',
+        'uid': user_idx,
+        'name': name,
+    }
 
 
-def edit_user(user_id: int):
+def edit_user(user_id: int, name: str):
     """Modify a user's data"""
-    return "user {user_id} was modified..."
+    global users
+    old_name = users[user_id]
+    users[user_id] = name
+    return {
+        'message': 'user modified',
+        'uid': user_id,
+        'old_name': old_name,
+        'new_name': name,
+    }
 
 
 def delete_user(user_id: int):
     """Remove a user from the database..."""
-    return "user {user_id} was removed..."
+    global users
+    name = users.pop(user_id)
+    return {
+        'message': 'user deleted',
+        'uid': user_id,
+        'name': name,
+    }
 
 
 user_routes = [
