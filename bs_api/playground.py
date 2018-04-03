@@ -48,6 +48,35 @@ def create_project():
 def echo_username(username):
     """Say hello to a user"""
     return {'message': f'Welcome, {username}!'}
+
+
+def list_users():
+    """list all users"""
+    return "list of users..."
+
+
+def create_user():
+    """Create a user"""
+    return "a new user created..."
+
+
+def edit_user(user_id: int):
+    """Modify a user's data"""
+    return "user {user_id} was modified..."
+
+
+def delete_user(user_id: int):
+    """Remove a user from the database..."""
+    return "user {user_id} was removed..."
+
+
+user_routes = [
+    Route('/', 'GET', list_users),
+    Route('/', 'POST', create_user),
+    Route('/{user_id}', 'PUT', edit_user),
+    Route('/{user_id}', 'DELETE', delete_user),
+]
+
 routes = [
     Route('show_request', 'GET', show_request),
     Route('show_query_params', 'GET', show_query_params),
@@ -57,4 +86,6 @@ routes = [
     Route('create_project', 'GET', create_project),
 
     Route('hello/{username}/', 'GET', echo_username),
+
+    Include('/users', user_routes),
 ]
