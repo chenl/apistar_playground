@@ -41,6 +41,13 @@ def create_project():
     data = {'name': 'new project', 'id': 123}
     headers = {'location': 'http://chen.rotemlevy.name/project/123'}
     return Response(data, status=201, headers=headers)
+
+
+# URL Routing
+
+def echo_username(username):
+    """Say hello to a user"""
+    return {'message': f'Welcome, {username}!'}
 routes = [
     Route('show_request', 'GET', show_request),
     Route('show_query_params', 'GET', show_query_params),
@@ -48,4 +55,6 @@ routes = [
 
     Route('create_project_default', 'GET', create_project_default),
     Route('create_project', 'GET', create_project),
+
+    Route('hello/{username}/', 'GET', echo_username),
 ]
