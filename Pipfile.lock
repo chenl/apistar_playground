@@ -1,0 +1,80 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "8a41acab38b3953aba9f8dcee63d0ba4fde39d388b5935733da1da24d79e10bf"
+        },
+        "requires": {},
+        "sources": [
+            {
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "apistar": {
+            "version": "==0.3.9"
+        },
+        "attrs": {
+            "version": "==17.4.0"
+        },
+        "certifi": {
+            "version": "==2018.1.18"
+        },
+        "chardet": {
+            "version": "==3.0.4"
+        },
+        "coreapi": {
+            "version": "==2.3.3"
+        },
+        "coreschema": {
+            "version": "==0.0.4"
+        },
+        "idna": {
+            "version": "==2.6"
+        },
+        "itypes": {
+            "version": "==1.1.0"
+        },
+        "jinja2": {
+            "version": "==2.10"
+        },
+        "markupsafe": {
+            "version": "==1.0"
+        },
+        "more-itertools": {
+            "version": "==4.1.0"
+        },
+        "pluggy": {
+            "version": "==0.6.0"
+        },
+        "py": {
+            "version": "==1.5.3"
+        },
+        "pytest": {
+            "version": "==3.5.0"
+        },
+        "requests": {
+            "version": "==2.18.4"
+        },
+        "setuptools": {
+            "version": "==39.0.1"
+        },
+        "six": {
+            "version": "==1.11.0"
+        },
+        "uritemplate": {
+            "version": "==3.0.0"
+        },
+        "urllib3": {
+            "version": "==1.22"
+        },
+        "werkzeug": {
+            "version": "==0.14.1"
+        },
+        "whitenoise": {
+            "version": "==3.3.1"
+        }
+    },
+    "develop": {}
+}
