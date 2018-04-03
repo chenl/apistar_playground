@@ -1,12 +1,12 @@
 bs_api
 ======
 
-.. image:: https://img.shields.io/pypi/v/bs_api.svg
-    :target: https://pypi.python.org/pypi/bs_api
+.. image:: https://img.shields.io/pypi/v/apistar_playground.svg
+    :target: https://pypi.python.org/pypi/apistar_playground
     :alt: Latest PyPI version
 
-.. image:: https://travis-ci.org/chenl/bs_api.png
-   :target: https://travis-ci.org/chenl/bs_api
+.. image:: https://travis-ci.org/chenl/apistar_palyground.png
+   :target: https://travis-ci.org/chenl/apistar_playground
    :alt: Latest Travis CI build status
 
 A RESTful API created to paly with apistar
@@ -29,4 +29,4 @@ Licence
 Authors
 -------
 
-`bs_api` was written by `Chen Rotem Levy <chen@rotemlevy.name>`_.
+`apistar_palyground` was written by `Chen Rotem Levy <contrib@chenlevy.com>`_.
