@@ -1,4 +1,5 @@
-from apistar import http, Include, Route, Response
+from typing import Iterable
+from apistar import http, Include, Route, Response, reverse_url
 
 
 # Request
@@ -102,15 +103,58 @@ user_routes = [
     Route('/{user_id}', 'DELETE', delete_user),
 ]
 
+
+# Revese routing
+
+players = {'penny': 42, 'benny': 99, 'jenny': 1234}
+
+
+def get_score(player_name: str) -> int:
+    return players[player_name]
+
+
+def get_palyers() -> Iterable[str]:
+    return players.keys()
+
+# ----------------------------------------------------------------------
+
+
+def get_palyer_details(player_name: str):
+    score = get_score(player_name)
+    return {'name': player_name, 'score': score}
+
+
+def get_all_palyers():
+    player_names = get_palyers()
+    player_list = [
+        {
+            'name': player_name,
+            'url': reverse_url('get_palyer_details', player_name=player_name),
+        }
+        for player_name in player_names
+    ]
+    return {'players': player_list}
+
+
+players_routes = [
+    Route('/', 'GET', get_all_palyers),
+    Route('/{player_name}/', 'GET', get_palyer_details),
+]
+
+# ----------------------------------------------------------------------
+
+
 routes = [
-    Route('show_request', 'GET', show_request),
-    Route('show_query_params', 'GET', show_query_params),
-    Route('show_user_agent', 'GET', show_user_agent),
+    Route('/show_request', 'GET', show_request),
+    Route('/show_query_params', 'GET', show_query_params),
+    Route('/show_user_agent', 'GET', show_user_agent),
 
-    Route('create_project_default', 'GET', create_project_default),
-    Route('create_project', 'GET', create_project),
+    Route('/create_project_default', 'GET', create_project_default),
+    Route('/create_project', 'GET', create_project),
 
-    Route('hello/{username}/', 'GET', echo_username),
+    Route('/hello/{username}/', 'GET', echo_username),
 
     Include('/users', user_routes),
+
+    Include('/players', players_routes),
 ]
