@@ -1,5 +1,5 @@
 from typing import Iterable
-from apistar import http, Include, Route, Response, reverse_url
+from apistar import http, Command, Include, Route, Response, reverse_url
 
 
 # Request
@@ -143,6 +143,11 @@ players_routes = [
 
 # ----------------------------------------------------------------------
 
+
+commands = [
+    Command('create_user', create_user),
+    Command('delete_user', delete_user),
+]
 
 routes = [
     Route('/show_request', 'GET', show_request),

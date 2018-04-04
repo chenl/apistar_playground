@@ -18,7 +18,7 @@ routes = [
     Include('/playgound', bs_api.playground.routes),
 ]
 
-app = App(routes=routes)
+app = App(routes=routes, commands=bs_api.playground.commands)
 
 
 if __name__ == '__main__':
