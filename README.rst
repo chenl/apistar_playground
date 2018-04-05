@@ -1,6 +1,6 @@
 $Revision$
 
-have
+have some
 
 .. image:: https://img.shields.io/pypi/v/apistar_playground.svg
     :target: https://pypi.python.org/pypi/apistar_playground
