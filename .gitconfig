@@ -1,0 +1,3 @@
+[filter "revision"]
+	smudge = sed -e 's/\\$Revision\\$/$Revision: '$(GIT_EXEC_PATH=/usr/lib/git-core/ git describe --match svn-r)'$/g'
+	clean = sed -e 's/\\$Revision: [^$]*\\$/$Revision$/g'
