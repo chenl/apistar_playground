@@ -1,3 +1,3 @@
 [filter "revision"]
 	smudge = /bin/sed -e 's/\\$Revision\\$/$Revision$(GIT_EXEC_PATH=/usr/lib/git-core/ /usr/bin/git describe --match svn-r)'$/g'
-	clean = /bin/sed -e 's/\\$Revision$]*\\$/$Revision$/g'
+	clean = /bin/sed -e 's/\\$Revision: [^$]*\\$/$Revision$/g'
