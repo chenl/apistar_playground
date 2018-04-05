@@ -1,4 +1,4 @@
-$Revision$  <-- this should be expanded
+$Revision$
 
 .. image:: https://img.shields.io/pypi/v/apistar_playground.svg
     :target: https://pypi.python.org/pypi/apistar_playground
