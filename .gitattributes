@@ -1,2 +1,3 @@
 # -*- mode: conf -*-
 * filter=revision
+.git* !filter
