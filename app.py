@@ -1,8 +1,14 @@
-from apistar import Include, Route
+from apistar import annotate, render_template, Include, Route
 from apistar.frameworks.wsgi import WSGIApp as App
 from apistar.handlers import docs_urls, static_urls
+from apistar.renderers import HTMLRenderer
 
 import bs_api.playground
+
+
+@annotate(renderers=[HTMLRenderer()])
+def hello(username: str):
+    return render_template('index.html', username=username)
 
 
 def welcome(name=None):
@@ -12,13 +18,24 @@ def welcome(name=None):
 
 
 routes = [
-    Route('/', 'GET', welcome),
+    Route('/', 'GET', hello),
     Include('/docs', docs_urls),
     Include('/static', static_urls),
     Include('/playgound', bs_api.playground.routes),
 ]
 
-app = App(routes=routes, commands=bs_api.playground.commands)
+settings = {
+    'TEMPLATES': {
+        'ROOT_DIR': 'templates',       # Include the 'templates' direcotry.
+        'PACKAGE_DIRS': ['apistar'],   # Include the buildin apistar templates.
+    }
+}
+
+app = App(
+    routes=routes,
+    commands=bs_api.playground.commands,
+    settings=settings,
+)
 
 
 if __name__ == '__main__':
