@@ -13,7 +13,7 @@ def create_product(product: types.Product):
 
 
 def get_all_products() -> List[types.Product]:
-    return list(products.items())
+    return [types.Product(record) for record in products.values()]
 
 
 routes = [
