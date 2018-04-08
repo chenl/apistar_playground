@@ -1,6 +1,6 @@
 from typing import Iterable
 from apistar import http, Command, Include, Route, Response, reverse_url
-from bs_api import product
+from bs_api import product, auth
 
 # Request
 
@@ -164,4 +164,6 @@ routes = [
     Include('/players', players_routes),
 
     Include('/products', product.routes),
+
+    Include('/auth', auth.routes),
 ]
