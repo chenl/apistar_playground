@@ -4,6 +4,7 @@ from apistar.handlers import docs_urls, static_urls
 from apistar.renderers import HTMLRenderer
 
 import bs_api.playground
+from bs_api.auth import BasicAuthentication
 
 
 @annotate(renderers=[HTMLRenderer()])
@@ -28,7 +29,8 @@ settings = {
     'TEMPLATES': {
         'ROOT_DIR': 'templates',       # Include the 'templates' direcotry.
         'PACKAGE_DIRS': ['apistar'],   # Include the buildin apistar templates.
-    }
+    },
+    'AUTHENTICATION': [BasicAuthentication()]
 }
 
 app = App(
